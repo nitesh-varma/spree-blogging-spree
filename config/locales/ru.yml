@@ -56,6 +56,7 @@ ru:
     blog_tag: Ключевое слово
     blog_category: Категория
     blog_author: Автор
+    view_in_store: Посмотреть в магазине
     admin:
       tab:
         blog_entries: Блог

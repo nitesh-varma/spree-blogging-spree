@@ -40,7 +40,7 @@ en:
     website_url: Website URL
     google_plus_url: Google Plus URL
     bio_info: Biographical info
-    blog: "Blog"
+    BLOG: "Blog"
     blog_entries: "Blog Entries"
     new_blog_entry: "New Blog Entry"
     no_blog_entries: "No blog entries found."
@@ -54,6 +54,7 @@ en:
     blog_tag: Tag
     blog_category: Category
     blog_author: Author
+    view_in_store: View in store
     admin:
       tab:
         blog_entries: Blog entries

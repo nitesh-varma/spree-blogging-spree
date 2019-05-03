@@ -13,6 +13,12 @@
 
     <h1><%= @blog_entry.title %></h1>
 
+    <div class="blog_entry_image">
+      <% if @blog_entry.blog_entry_image.attachment.attached? %>
+        <%= image_tag(main_app.url_for(@blog_entry.blog_entry_image.url(:large))) %>
+      <% end %>
+    </div>
+
     <div class="blog_entry_body">
       <%== @blog_entry.body %>
     </div>

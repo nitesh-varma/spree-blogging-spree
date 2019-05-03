@@ -37,7 +37,7 @@ es:
     website_url: Website URL
     google_plus_url: Google Plus URL
     bio_info: Bio
-    blog: "Blog"
+    BLOG: "Blog"
     blog_entries: "Entradas de Blog"
     new_blog_entry: "Nuevo post"
     no_blog_entries: "No existen post"
@@ -51,6 +51,7 @@ es:
     blog_tag: Tag
     blog_category: Categoría
     blog_author: Autor
+    view_in_store: Ver en tienda
     admin:
       tab:
         blog_entries: Blog
