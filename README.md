@@ -1,9 +1,9 @@
-SpreeBloggingSpree
+SpreeBloggingSpree (Spree > 3.6.x)
 ==================
 
 [![Build Status](https://travis-ci.org/stefansenk/spree-blogging-spree.png?branch=master)](https://travis-ci.org/stefansenk/spree-blogging-spree)
 
-A basic blogging solution for use with the [Spree](http://github.com/spree/spree/) E-Commerce platform.
+A basic blogging solution for use with the [Spree](http://github.com/spree/spree/) E-Commerce platform. (Spree > 3.6.x)
 
 The blog is found under /blog on the website font end. Blog entries have fields for title, body, summary, date published, and author. Each blog entry can also have categories and tags associated with it. 
 
@@ -31,7 +31,7 @@ Installation
 Add to your Gemfile:
 
 ```ruby
-gem 'spree_blogging_spree', github: 'krazedkrish/spree-blogging-spree', branch: '3-0-stable'
+gem 'spree_blogging_spree', github: 'nitesh-varma/spree-blogging-spree'
 ```
 
 Bundle your dependencies and run the installation generator:
