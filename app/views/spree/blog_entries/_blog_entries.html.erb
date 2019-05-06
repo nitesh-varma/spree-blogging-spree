@@ -1,14 +1,14 @@
-<div id="blog_entry_container" class="">
-  <% if !@blog_entries.empty? %>
-    <ul id="blog_entry_entries">
-      <% @blog_entries.each do |blog_entry| %>
-        <li>
-          <%= render :partial => 'spree/blog_entries/blog_entry', :locals => {:blog_entry => blog_entry} %>
-        </li>
-      <% end %>
-    </ul>
-    <%= paginate @blog_entries %>
-  <% else %>
+<div id="blog_entry_container" class="infinite-grid">
+  <%= blog_entries_slider(@blog_entries[0..2]) %>
+  <% if @blog_entries[3].present? %>
+    <div class="text-center latest-blogs">
+      <h1>LATEST BLOGS</h1>
+      <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entries[3..8] %>
+    </div>
+    <div class="row paginate">
+      <%= paginate @blog_entries %>
+    </div>
+  <% elsif @blog_entries.blank? %>
     <p id="no_entries"><%= Spree.t(:no_blog_entries) %></p>
   <% end %>
 </div>

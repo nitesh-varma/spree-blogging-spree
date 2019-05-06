@@ -4,18 +4,14 @@
   <% end %>
 <% end %>
 
-<% content_for :sidebar do %>
-  <%= render :partial => 'spree/blog_entries/blog_sidebar' %>
-<% end %>
-
 <div id="blog_entry_container" class=''>
   <div id="blog_entry_entry" class=''>
 
     <h1><%= @blog_entry.title %></h1>
 
     <div class="blog_entry_image">
-      <% if @blog_entry.blog_entry_image.attachment.attached? %>
-        <%= image_tag(main_app.url_for(@blog_entry.blog_entry_image.url(:large))) %>
+      <% if @blog_entry.blog_entry_image.present? %>
+        <%= image_tag(main_app.url_for(@blog_entry.blog_entry_image.url(:large)), alt: @blog_entry.blog_entry_image.alt) %>
       <% end %>
     </div>
 

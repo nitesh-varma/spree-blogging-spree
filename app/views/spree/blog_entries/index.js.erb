@@ -1,0 +1,10 @@
+// Append new data
+$("<%=j render(partial: 'spree/blog_entries/index/blog_entries', locals: { blog_entries: @blog_entries }) %>")
+  .appendTo($(".infinite-grid .latest-blogs"));
+
+// Update pagination link
+<% if @blog_entries.last_page? %>
+  $('.pagination').html('');
+<% else %>
+  $('.pagination').html("<%=j link_to_next_page(@blog_entries, 'Next Page', remote: true) %>");
+<% end %>

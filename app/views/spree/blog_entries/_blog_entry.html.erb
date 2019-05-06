@@ -1,13 +1,20 @@
-<h2><%= link_to blog_entry.title, blog_entry_permalink(blog_entry) %></h2>
-
-<div class="blog_entry_summary">
-  <div class="blog_entry_image">
-    <% if blog_entry.blog_entry_image.attachment.attached? %>
-      <%= image_tag(main_app.url_for(blog_entry.blog_entry_image.url(:mini))) %>
-    <% end %>
+<%= link_to blog_entry_permalink(blog_entry) do %>
+  <div class="col-md-4 blog_entry">
+    <div class="card">
+      <div class="row">
+        <div class="col-xs-12">
+          <% if blog_entry.blog_entry_image.present? %>
+            <%= image_tag(main_app.url_for(blog_entry.blog_entry_image.url(:product)), alt: blog_entry.blog_entry_image.alt, class: 'lazy img img-responsive img-prefill-portrait blog-image') %>
+          <% end %>
+        </div>
+        <div class="col-xs-10 col-xs-offset-1 text-center summary">
+          <h4 class="h4 title">Should You Buy The Colorbar Twinkling Glitter? </h4>
+          <div class="light">
+            <h5 class="h5 pull-left"><%= blog_entry.author.try(:nickname) %></h5>
+            <h5 class="h5 pull-right"><%= l(blog_entry.published_at, format: :blog_date) %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <%== blog_entry.entry_summary %>
-  <span class="blog_read_more"><%= link_to Spree.t(:blog_read_more), blog_entry_permalink(blog_entry) %></span>
-</div>
-
-<%= render :partial => 'spree/blog_entries/blog_entry_details', :locals => {:blog_entry => blog_entry} %>
+<% end %>

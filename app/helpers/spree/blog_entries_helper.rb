@@ -6,19 +6,11 @@ module Spree
     end
 
     def blog_entry_permalink(e)
-      unless e.published_at.nil?
-        blog_entry_permalink_path :year => e.published_at.strftime("%Y"), :month => e.published_at.strftime("%m"), :day => e.published_at.strftime("%d"), :slug => e.permalink
-      else
-        blog_entry_permalink_path :year => "na", :month => "na", :day => "na", :slug => e.permalink
-      end
+      blog_entry_permalink_path slug: e.permalink
     end
 
     def blog_entry_url_permalink(e)
-      unless e.published_at.nil?
-         blog_entry_permalink_url :year => e.published_at.strftime("%Y"), :month => e.published_at.strftime("%m"), :day => e.published_at.strftime("%d"), :slug => e.permalink
-       else
-        blog_entry_permalink_url :year => "na", :month => "na", :day => "na", :slug => e.permalink
-      end
+      blog_entry_permalink_url slug: e.permalink
     end
 
     def blog_full_article_html(blog_entry)
@@ -44,6 +36,27 @@ module Spree
         index = ((tag.count / max_count) * (classes.size - 1))
         yield tag, classes[index.nan? ? 0 : index.round]
       end
+    end
+
+    def blog_entries_slider(blog_entries)
+      items=""
+
+      blog_entries.each do |i|
+        if i.blog_entry_image.present?
+          items += "<a class='no-a' href='#{blog_entry_permalink(i)}'><div class='im' style='background-image: url(#{(main_app.url_for(i.blog_entry_image.url(:large)))})'></div><div class='half-card-carousel'><h2 class='text-center itle-carousel'>#{i.title}</h2></div></a>"
+        end
+      end
+
+      content="
+              <div class='container' data-hook='itsites_simple_slider'>
+                <div class='row'>
+                  <div class='slii'>
+                    #{items}
+                  </div>
+                </div>
+              </div>
+            "
+      return raw content
     end
   end
 end
