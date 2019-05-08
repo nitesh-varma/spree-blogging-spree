@@ -4,22 +4,30 @@
   <% end %>
 <% end %>
 
-<div id="blog_entry_container" class=''>
-  <div id="blog_entry_entry" class=''>
-
-    <h1><%= @blog_entry.title %></h1>
-
-    <div class="blog_entry_image">
-      <% if @blog_entry.blog_entry_image.present? %>
-        <%= image_tag(main_app.url_for(@blog_entry.blog_entry_image.url(:large)), alt: @blog_entry.blog_entry_image.alt) %>
-      <% end %>
+<div id="blog_entry_container" class='container'>
+  <div id="blog_entry_entry" class='row'>
+    <div class="col-md-8" style="padding:0;">
+      <div class="card-static">
+        <div class="blog_entry_image">
+          <% if @blog_entry.blog_entry_image.present? %>
+            <%= image_tag(main_app.url_for(@blog_entry.blog_entry_image.url(:large)), alt: @blog_entry.blog_entry_image.alt, class: 'img img-responsive', style: 'width:100%;') %>
+          <% end %>
+        </div>
+        <div class="blog_entry_summary">
+          <center class="title">
+            <h1 style="line-height: 1.3em;font-size:30px;"><%= @blog_entry.title %></h1><br>
+            <% if @blog_entry.author %>
+              <h2 class="light" style="font-size:18px;"><%= @blog_entry.author.nickname %></h2>
+            <% end %>
+            <h3 class="light" style="font-size:16px;"><%= Spree.t(:posted_on) %> <span class="blog_entry_date"><%= l(@blog_entry.published_at, :format => :blog_date) %></span>
+            </h3><br>
+          </center>
+        </div>
+        <div class="blog_entry_body padding-30-30">
+          <%== @blog_entry.body %>
+        </div>
+      </div>
     </div>
-
-    <div class="blog_entry_body">
-      <%== @blog_entry.body %>
-    </div>
-
-    <%= render :partial => 'spree/blog_entries/blog_entry_details', :locals => {:blog_entry => @blog_entry} %>
   </div>
 
   <%= render :partial => 'spree/blog_entries/comments', :locals => {:blog_entry => @blog_entry}  %>
