@@ -75,6 +75,10 @@ class Spree::BlogEntry < ActiveRecord::Base
     ).where(id: self.class.all.visible.limit(50).pluck(:id).sample(16)).limit(9)
   end
 
+  def nofollow_label
+    'nofollow' if nofollow
+  end
+
   private
 
   def self.years

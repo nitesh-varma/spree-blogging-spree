@@ -21,6 +21,7 @@ ru:
         meta_title: Мета заголовок
         meta_description: Мета описание
         meta_keywords: Ключевые слова
+        nofollow: Nofollow
       spree/user:
         nickname: Псевдоним (ник)
         website_url: Ссылка на сайт
@@ -57,6 +58,7 @@ ru:
     blog_category: Категория
     blog_author: Автор
     view_in_store: Посмотреть в магазине
+    nofollow: Nofollow
     admin:
       tab:
         blog_entries: Блог

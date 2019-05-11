@@ -43,7 +43,7 @@
 <div class="row">
     <div class="col-sm-6">
       <%= form.field_container :published_at do %>
-	  <div class="form-group">
+      <div class="form-group">
         <%= form.label :published_at, Spree.t(:published_at) %>
         <%= form.error_message_on :published_at %>
         <% if @blog_entry.published_at? %>
@@ -52,11 +52,17 @@
           <% published_at = nil %>
         <% end %>
         <%= form.text_field :published_at, :value => published_at, :class => 'datepicker form-control' %>
-      <% end %>
-	  </div><!-- form-group -->
+        <% end %>
+      </div><!-- form-group -->
     </div>
-
-    <div class="col-sm-4 col-sm-offset-2">
+    <div class="col-sm-3">
+      <%= form.field_container :nofollow do %>
+        <%= form.label :nofollow, Spree.t(:nofollow) %><br />
+        <%= form.check_box :nofollow %>
+        <%= form.error_message_on :nofollow %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
       <%= form.field_container :visible do %>
         <%= form.label :visible, Spree.t(:visible) %><br />
         <%= form.check_box :visible %>

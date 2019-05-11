@@ -18,6 +18,7 @@ es:
         meta_title: Meta título
         meta_description: Descripción
         meta_keywords: Palabras clave
+        nofollow: Nofollow
       spree/user:
         nickname: Nickname
         website_url: Website URL
@@ -52,6 +53,7 @@ es:
     blog_category: Categoría
     blog_author: Autor
     view_in_store: Ver en tienda
+    nofollow: Nofollow
     admin:
       tab:
         blog_entries: Blog
