@@ -1,0 +1,16 @@
+<%= link_to blog_entry_permalink(blog_entry) do %>
+  <div class="col-xs-12 card-rec-col">
+    <div class="card">
+      <div class="row">
+        <div class="col-xs-5">
+          <% if blog_entry.blog_entry_image.present? %>
+            <%= image_tag(main_app.url_for(blog_entry.blog_entry_image.url(:small)), alt: blog_entry.blog_entry_image.alt, class: 'lazy img img-responsive img-small') %>
+          <% end %>
+        </div>
+        <div class="col-xs-7">
+          <h4 class="h4 small-title"><%= blog_entry.title %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

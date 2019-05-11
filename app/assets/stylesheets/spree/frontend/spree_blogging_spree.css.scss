@@ -11,7 +11,7 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
 }
 .blog_entry_summary{
   margin: 10px 0;
-} 
+}
 ul#blog_entry_entries {
   list-style: none;
 
@@ -19,7 +19,7 @@ ul#blog_entry_entries {
 }
 
 /* tag cloud widget */
-.blog_tag_cloud { 
+.blog_tag_cloud {
   margin-bottom: 10px;
 
   li { display: inline-block; }
@@ -58,7 +58,34 @@ ul#blog_entry_entries {
   span { cursor: pointer; }
 }
 
+@media only screen and (min-width : 992px) {
+  .rec-col {
+    padding-left: 80px;
+    padding-top: 100px;
+  }
+}
+
 #blog_entry_container {
+  center h5 {
+    font-size:18px;
+    font-weight:bold;
+  }
+  .rec-col-a {
+    margin-top: 10px;
+  }
+  .small-title {
+      color: #555;
+      max-height: 6.2em;
+      line-height: 1.5em;
+      overflow: hidden;
+      font-size: 14px;
+      font-weight: bold;
+  }
+  .img-small {
+    object-fit: cover;
+    height: 100px;
+    width: 100%;
+  }
   .half-card-carousel {
     padding-top: 0px;
     .itle-carousel {
@@ -77,20 +104,16 @@ ul#blog_entry_entries {
     border: solid 1px #ddd;
     box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.1);
   }
-
   .no-a {
     text-decoration: none;
   }
-
   .img-prefill-portrait {
     width: 100%;
   }
-
   .latest-blogs h1 {
     font-size:16px;
     font-weight:bold;
   }
-
   .blog_entry {
     .title {
       margin-top: 10px;

@@ -28,7 +28,30 @@
         </div>
       </div>
     </div>
+    <div class="col-md-4 rec-col hidden-sm hidden-xs">
+      <center><br>
+        <h5>MOST POPULAR</h5>
+      </center>
+      <div class="row">
+        <% @blog_entry.popular_blogs.each do |blog_entry| %>
+          <%= render 'spree/blog_entries/blog_entry_small', blog_entry: blog_entry %>
+        <%end %>
+      </div><br><br>
+    </div>
   </div>
-
-  <%= render :partial => 'spree/blog_entries/comments', :locals => {:blog_entry => @blog_entry}  %>
+  <div class="text-center recommended-blogs row">
+    <% if @blog_entry.recommended_blogs.present? %>
+      <center><br><br><br>
+        <h5>RECOMMENDED STORIES</h5>
+      </center>
+      <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
+    <% end %>
+  </div>
+  <div class="text-center popular-blogs row visible-xs visible-sm">
+    <center><br><br><br>
+      <h5>MOST POPULAR</h5>
+    </center>
+    <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.popular_blogs %>
+  </div>
+  <%= render 'spree/blog_entries/comments', blog_entry: @blog_entry %>
 </div>

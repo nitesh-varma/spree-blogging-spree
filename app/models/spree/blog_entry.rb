@@ -65,6 +65,16 @@ class Spree::BlogEntry < ActiveRecord::Base
     end
   end
 
+  def recommended_blogs
+    @recommended_blogs ||= find_related_tags.visible.reorder('count DESC').where.not(id: id).limit(6)
+  end
+
+  def popular_blogs
+    @popular_blogs ||= self.class.all.visible.where.not(
+      id: recommended_blogs.map(&:id) + [id]
+    ).where(id: self.class.all.visible.limit(50).pluck(:id).sample(16)).limit(9)
+  end
+
   private
 
   def self.years
