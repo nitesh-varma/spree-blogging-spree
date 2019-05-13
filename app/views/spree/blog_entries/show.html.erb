@@ -28,7 +28,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 rec-col hidden-sm hidden-xs">
+    <div class="col-md-4 rec-col">
       <center><br>
         <h5>MOST POPULAR</h5>
       </center>
@@ -39,7 +39,7 @@
       </div><br><br>
     </div>
   </div>
-  <div class="text-center recommended-blogs row">
+  <div class="text-center recommended-blogs row hidden-xs">
     <% if @blog_entry.recommended_blogs.present? %>
       <center><br><br><br>
         <h5>RECOMMENDED STORIES</h5>
@@ -47,11 +47,11 @@
       <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
     <% end %>
   </div>
-  <div class="text-center popular-blogs row visible-xs visible-sm">
+  <div class="text-center popular-blogs row visible-xs">
     <center><br><br><br>
       <h5>MOST POPULAR</h5>
     </center>
-    <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.popular_blogs %>
+    <%= render 'spree/blog_entries/index/mobile/blog_entries', blog_entries: @blog_entry.recommended_blogs  %>
   </div>
   <%= render 'spree/blog_entries/comments', blog_entry: @blog_entry %>
 </div>

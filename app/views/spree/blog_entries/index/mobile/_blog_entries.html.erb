@@ -1,0 +1,7 @@
+<% blog_entries.in_groups_of(2, false) do |blogs| %>
+  <div class="row">
+    <% blogs.each do |blog_entry| %>
+      <%= render partial: 'spree/blog_entries/index/mobile/blog_entry', locals: { blog_entry: blog_entry } %>
+    <% end %>
+  </div>
+<% end %>

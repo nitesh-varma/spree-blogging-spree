@@ -1,0 +1,18 @@
+<%= link_to blog_entry_permalink(blog_entry), rel: blog_entry.nofollow_label do %>
+  <div class="small_blog_entry">
+    <div class="col-xs-6 card-tinymce">
+      <div>
+        <% if blog_entry.blog_entry_image.present? %>
+          <%= image_tag(main_app.url_for(blog_entry.blog_entry_image.url(:small)), alt: blog_entry.blog_entry_image.alt, class: 'lazy img img-responsive img-prefill-portrait blog-image') %>
+        <% end %>
+        <div class="text-center summary">
+          <h5 class="h5 title"><%= blog_entry.title %> </h5>
+          <div class="light">
+            <h5 class="h5 pull-left"><%= blog_entry.author.try(:nickname) %></h5>
+            <h5 class="h5 pull-right"><%= l(blog_entry.published_at, format: :blog_date) %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
