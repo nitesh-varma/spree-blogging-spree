@@ -21,7 +21,7 @@
             <% end %>
             <h3 class="light" style="font-size:16px;"><%= Spree.t(:posted_on) %> <span class="blog_entry_date"><%= l(@blog_entry.published_at, :format => :blog_date) %></span>
             </h3><br>
-            <%= social_share_button_tag(@blog_entry.title) %>
+            <%= social_share_button_tag(@blog_entry.title, url: request.original_url, desc: @blog_entry.title, 'data-whatsapp_app-title' => "#{@blog_entry.title} #{request.original_url}") %>
           </center>
         </div>
         <div class="blog_entry_body padding-30-30">
