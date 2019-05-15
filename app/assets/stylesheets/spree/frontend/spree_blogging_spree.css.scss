@@ -7,7 +7,7 @@ the installer will append this file to the app vendored assets here: 'vendor/ass
   margin-bottom: 30px;
 }
 .blog_entry_body {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 .blog_entry_summary{
   margin: 10px 0;
@@ -59,7 +59,9 @@ ul#blog_entry_entries {
 }
 
 #blog_entry_container {
-  font-family: 'Georgia'!important;
+  font-family: 'Georgia';
+  font-size: 17px;
+  line-height: 28px;
   h1 { font-size: 30px; }
   h2 { font-size: 24px; }
   h3 { font-size: 20px; }
@@ -70,9 +72,6 @@ ul#blog_entry_entries {
     .light h5 {
       margin-top: 0px;
     }
-  }
-  .small_blog_entry img {
-    height: 120px;
   }
   center h5 {
     font-size:18px;
@@ -154,6 +153,25 @@ ul#blog_entry_entries {
   }
 }
 
+@media only screen and (min-width : 320px) {
+  #blog_entry_container {
+    .small_blog_entry img {
+      height: 140px!important;
+    }
+    .blog_entry_body p img {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width : 768px) {
+  #blog_entry_container {
+    .small_blog_entry img {
+      height: 220px!important;
+    }
+  }
+}
+
 @media only screen and (min-width : 992px) {
   #blog_entry_container {
     .rec-col {
@@ -162,6 +180,9 @@ ul#blog_entry_entries {
     }
     .im {
       height: 500px;
+    }
+    .blog_entry_body p img {
+      width: 80%;
     }
   }
 }

@@ -7,10 +7,6 @@
         <% end %>
         <div class="text-center summary">
           <h5 class="h5 title"><%= blog_entry.title %> </h5>
-          <div class="light">
-            <h5 class="h5 pull-left"><%= blog_entry.author.try(:nickname) %></h5>
-            <h5 class="h5 pull-right"><%= l(blog_entry.published_at, format: :blog_date) %></h5>
-          </div>
         </div>
       </div>
     </div>

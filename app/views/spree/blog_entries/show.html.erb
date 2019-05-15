@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4 rec-col">
+    <div class="col-md-4 rec-col hidden-xs hidden-sm">
       <center><br>
         <h5>MOST POPULAR</h5>
       </center>
@@ -40,19 +40,28 @@
       </div><br><br>
     </div>
   </div>
-  <div class="text-center recommended-blogs row hidden-xs">
+  <div class="text-center recommended-blogs row">
     <% if @blog_entry.recommended_blogs.present? %>
       <center><br><br><br>
         <h5>RECOMMENDED STORIES</h5>
       </center>
-      <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
+      <div class="hidden-xs hidden-sm">
+        <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
+      </div>
+      <div class="visible-xs visible-sm">
+        <%= render 'spree/blog_entries/index/mobile/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
+      </div>
     <% end %>
   </div>
-  <div class="text-center popular-blogs row visible-xs">
-    <center><br><br><br>
-      <h5>RECOMMENDED STORIES</h5>
+  <div class="rec-col visible-sm visible-xs">
+    <center><br>
+      <h5>MOST POPULAR</h5>
     </center>
-    <%= render 'spree/blog_entries/index/mobile/blog_entries', blog_entries: @blog_entry.recommended_blogs  %>
+    <div class="row">
+      <% @blog_entry.popular_blogs.each do |blog_entry| %>
+        <%= render 'spree/blog_entries/blog_entry_small', blog_entry: blog_entry %>
+      <%end %>
+    </div><br><br>
   </div>
   <%= render 'spree/blog_entries/comments', blog_entry: @blog_entry %>
 </div>

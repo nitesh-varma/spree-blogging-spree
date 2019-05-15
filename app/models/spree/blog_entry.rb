@@ -2,7 +2,7 @@ require 'acts-as-taggable-on'
 
 class Spree::BlogEntry < ActiveRecord::Base
   acts_as_taggable_on :tags, :categories
-  before_save :create_permalink
+  before_validation :create_permalink
   before_save :set_published_at
   validates_presence_of :title
   validates_presence_of :body
@@ -90,7 +90,11 @@ class Spree::BlogEntry < ActiveRecord::Base
   end
 
   def create_permalink
-    self.permalink = title.to_url if permalink.blank?
+    if permalink.blank?
+      self.permalink = title.to_url if title?
+    else
+      self.permalink = self.permalink.gsub(/\s+/, '-')
+    end
   end
 
   def set_published_at
