@@ -63,10 +63,15 @@ ul#blog_entry_entries {
   .blog-title{
     line-height:45px;
   }
+  .latest-blog-row{
+    margin-bottom: 50px;
+  }
   .latest-blogs h1{
     margin-top:50px;
     font-size:22px;
     margin-bottom: 60px;
+    margin-bottom: -33px;
+    margin-top: 120px;
   }
   .latest-blogs h1:after{
     content: '';
@@ -77,6 +82,7 @@ ul#blog_entry_entries {
     right: 0;
     padding-top: 73px;
   }
+
   strong{
     font-weight: bold;
   }
@@ -178,7 +184,7 @@ ul#blog_entry_entries {
       margin: 30px 0;
     }
     .light h5 {
-      font-size: 12px;
+      font-size: 13px;
     }
     .blog-image {
       display: block;
@@ -208,6 +214,7 @@ ul#blog_entry_entries {
       margin-bottom: 10px !important;
       font-weight: bold !important;
       line-height: 30px !important;
+      height: 90px;
     }
   }
 }
