@@ -43,7 +43,7 @@ module Spree
 
       blog_entries.each do |i|
         if i.blog_entry_image.present?
-          items += "<a class='no-a' href='#{blog_entry_permalink(i)}' rel='#{i.nofollow_label}'><div class='im' style='background-image: url(#{(main_app.url_for(i.blog_entry_image.url(:large)))})'></div><div class='half-card-carousel'><h2 class='text-center itle-carousel'>#{i.title}</h2></div></a>"
+          items += "<a class='no-a' href='#{blog_entry_permalink(i)}' rel='#{i.nofollow_label}'><div class='im' style='background-image: url(#{(main_app.url_for(i.blog_entry_image.url(:large)))})'></div><div class='half-card-carousel'><h1 class='text-center itle-carousel'>#{i.title}</h1></div></a>"
         end
       end
 
