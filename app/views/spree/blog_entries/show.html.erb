@@ -15,12 +15,12 @@
         </div>
         <div class="blog_entry_summary">
           <center class="title">
-            <h1 style="line-height: 1.3em;font-size:30px;"><%= @blog_entry.title %></h1><br>
+            <h1 class="blog-title"><%= @blog_entry.title %></h1><br>
             <% if @blog_entry.author %>
-              <h2 class="light" style="font-size:18px;"><%= @blog_entry.author.nickname %></h2>
+              <div class="light" style="font-size:18px;"><%= "#{@blog_entry.author.nickname},#{@blog_entry.published_at.strftime("%d %b %y")}"%>
+              </div>
             <% end %>
-            <h3 class="light" style="font-size:16px;"><%= Spree.t(:posted_on) %> <span class="blog_entry_date"><%= l(@blog_entry.published_at, :format => :blog_date) %></span>
-            </h3><br>
+            <br>
             <%= social_share_button_tag(@blog_entry.title, url: request.original_url, desc: @blog_entry.title, 'data-whatsapp_app-title' => "#{@blog_entry.title} #{request.original_url}") %>
           </center>
         </div>
@@ -31,7 +31,7 @@
     </div>
     <div class="col-md-4 rec-col hidden-xs hidden-sm">
       <center><br>
-        <h5>MOST POPULAR</h5>
+        <h5 class="m-popular"><span>MOST POPULAR</span></h5>
       </center>
       <div class="row">
         <% @blog_entry.popular_blogs.each do |blog_entry| %>
@@ -43,7 +43,7 @@
   <div class="text-center recommended-blogs row">
     <% if @blog_entry.recommended_blogs.present? %>
       <center><br><br><br>
-        <h5>RECOMMENDED STORIES</h5>
+        <h5 class="m-popular"><span>RECOMMENDED STORIES</span></h5>
       </center>
       <div class="hidden-xs hidden-sm">
         <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entry.recommended_blogs %>
@@ -55,7 +55,11 @@
   </div>
   <div class="rec-col visible-sm visible-xs">
     <center><br>
-      <h5>MOST POPULAR</h5>
+      <h5>
+        <span class="m-popular">
+          MOST POPULAR
+        </span>
+      </h5>
     </center>
     <div class="row">
       <% @blog_entry.popular_blogs.each do |blog_entry| %>
