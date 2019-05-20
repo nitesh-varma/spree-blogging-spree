@@ -3,8 +3,14 @@
   <% if @blog_entries[3].present? %>
     <div class="text-center latest-blogs">
       <h1>LATEST BLOGS</h1>
-      <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entries[3..8] %>
+      <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entries[3..5] %>
     </div>
+    <% if @blog_entries[6].present? %>
+      <div class="text-center latest-blogs">
+        <h1>Trending Stories</h1>
+        <%= render 'spree/blog_entries/index/blog_entries', blog_entries: @blog_entries[6..8] %>
+      </div>
+    <% end %>
     <div class="row paginate">
       <%= paginate @blog_entries %>
     </div>

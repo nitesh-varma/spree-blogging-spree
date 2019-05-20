@@ -17,7 +17,7 @@
           <center class="title">
             <h1 class="blog-title"><%= @blog_entry.title %></h1><br>
             <% if @blog_entry.author %>
-              <div class="light" style="font-size:18px;"><%= "#{@blog_entry.author.nickname},#{@blog_entry.published_at.strftime("%d %b %y")}"%>
+              <div class="light" style="font-size:18px; color: #777;"><%= "#{@blog_entry.author.nickname}, #{@blog_entry.published_at.strftime("%d %b %y")}"%>
               </div>
             <% end %>
             <br>

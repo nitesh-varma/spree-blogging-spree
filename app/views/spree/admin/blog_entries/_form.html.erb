@@ -39,6 +39,39 @@
     <% end %>
 </div><!-- col -->
 </div><!-- row -->
+<div class='row'>
+  <div class="col-sm-12">
+<%= form.field_container :meta_title do %>
+<div class="form-group">
+  <%= form.label :meta_title %>
+  <%= form.text_field :meta_title, :class => 'form-control', :id => 'blog_entry_meta_title' %>
+  <%= form.error_message_on :meta_title %>
+  </div><!-- form-group -->
+<% end %>
+</div><!-- col -->
+</div><!-- row -->
+<div class='row'>
+  <div class="col-sm-12">
+<%= form.field_container :meta_description do %>
+<div class="form-group">
+  <%= form.label :meta_description %>
+  <%= form.text_field :meta_description, :class => 'form-control', :id => 'blog_entry_meta_description' %>
+  <%= form.error_message_on :meta_description %>
+  </div><!-- form-group -->
+<% end %>
+</div><!-- col -->
+</div><!-- row -->
+<div class='row'>
+  <div class="col-sm-12">
+<%= form.field_container :meta_keywords do %>
+<div class="form-group">
+  <%= form.label :meta_keywords %>
+  <%= form.text_field :meta_keywords, :class => 'form-control', :id => 'blog_entry_meta_keywords' %>
+  <%= form.error_message_on :meta_keywords %>
+  </div><!-- form-group -->
+<% end %>
+</div><!-- col -->
+</div><!-- row -->
 
 <div class="row">
     <div class="col-sm-6">
@@ -119,6 +152,7 @@
 <% end %>
 </div><!-- col -->
 </div><!-- row -->
+<% if false %>
 <div class='row'>
   <div class="col-sm-12">
 <%= form.field_container :summary do %>
@@ -130,36 +164,4 @@
 <% end %>
 </div><!-- col -->
 </div><!-- row -->
-<div class='row'>
-  <div class="col-sm-12">
-<%= form.field_container :meta_title do %>
-<div class="form-group">
-  <%= form.label :meta_title %>
-  <%= form.text_field :meta_title, :class => 'form-control', :id => 'blog_entry_meta_title' %>
-  <%= form.error_message_on :meta_title %>
-  </div><!-- form-group -->
 <% end %>
-</div><!-- col -->
-</div><!-- row -->
-<div class='row'>
-  <div class="col-sm-12">
-<%= form.field_container :meta_description do %>
-<div class="form-group">
-  <%= form.label :meta_description %>
-  <%= form.text_field :meta_description, :class => 'form-control', :id => 'blog_entry_meta_description' %>
-  <%= form.error_message_on :meta_description %>
-  </div><!-- form-group -->
-<% end %>
-</div><!-- col -->
-</div><!-- row -->
-<div class='row'>
-  <div class="col-sm-12">
-<%= form.field_container :meta_keywords do %>
-<div class="form-group">
-  <%= form.label :meta_keywords %>
-  <%= form.text_field :meta_keywords, :class => 'form-control', :id => 'blog_entry_meta_keywords' %>
-  <%= form.error_message_on :meta_keywords %>
-  </div><!-- form-group -->
-<% end %>
-</div><!-- col -->
-</div><!-- row -->

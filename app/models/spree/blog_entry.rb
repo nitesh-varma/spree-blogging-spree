@@ -66,13 +66,13 @@ class Spree::BlogEntry < ActiveRecord::Base
   end
 
   def recommended_blogs
-    @recommended_blogs ||= find_related_tags.visible.reorder('count DESC').where.not(id: id).limit(6)
+    @recommended_blogs ||= find_related_tags.visible.reorder('count DESC').where.not(id: id).limit(12)
   end
 
   def popular_blogs
     @popular_blogs ||= self.class.all.visible.where.not(
       id: recommended_blogs.map(&:id) + [id]
-    ).where(id: self.class.all.visible.limit(50).pluck(:id).sample(16)).limit(9)
+    ).where(id: self.class.all.visible.limit(60).pluck(:id).sample(31)).limit(18)
   end
 
   def nofollow_label
@@ -93,7 +93,7 @@ class Spree::BlogEntry < ActiveRecord::Base
     if permalink.blank?
       self.permalink = title.to_url if title?
     else
-      self.permalink = self.permalink.gsub(/\s+/, '-')
+      self.permalink = self.permalink.gsub('-', ' ').gsub(/[,']/, '').gsub(/\s+/, '-')
     end
   end
 
